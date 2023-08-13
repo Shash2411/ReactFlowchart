@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Button Generation</title>
+</head>
+<body>
+    <label for="numOfButtons">Enter the number of buttons (j):</label>
+    <input type="number" id="numOfButtons">
+    <button id="mainButton">Click Me to Generate j Buttons</button>
+    <div id="buttonContainer">
+    </div>
+
+    <script>
+        let buttonCounter = 1; // Variable to keep track of the button count
+
+        // Function to create a new button in a new div
+        function createNewButtons(numOfButtons) {
+            for (let count = 0; count < numOfButtons; count++) {
+                const newDiv = document.createElement("div");
+                const newButton = document.createElement("button");
+                newButton.textContent = `Button ${buttonCounter}`;
+                newButton.addEventListener("click", function () {
+                    const i = parseInt(prompt("Enter the number of buttons (i):"));
+                    createNewButtons(i);
+                });
+                newDiv.appendChild(newButton);
+                document.getElementById("buttonContainer").appendChild(newDiv);
+                buttonCounter++;
+            }
+        }
+
+        // Event listener for the main button
+        document.getElementById("mainButton").addEventListener("click", function () {
+            const j = parseInt(document.getElementById("numOfButtons").value);
+            createNewButtons(j);
+        });
+    </script>
+</body>
+</html>
+

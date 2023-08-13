@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Buttons with Different Class Names</title>
+</head>
+<body>
+  <button onclick="createButtons(5)">Create Buttons</button>
+  <div id="buttonContainer"></div>
+
+  <script>
+    function createButtons(numButtons) {
+      const container = document.getElementById("buttonContainer");
+
+      for (let i = 0; i < numButtons; i++) {
+        const newButton = document.createElement("button");
+        newButton.textContent = "Button " + (i + 1);
+
+        // Assign a different classname to each button based on the loop index
+        newButton.classList.add("button-" + (i + 1));
+
+        container.appendChild(newButton);
+      }
+    }
+  </script>
+</body>
+</html>

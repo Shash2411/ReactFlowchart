@@ -1,0 +1,7 @@
+.MainDiv {
+  display: flex;
+}
+
+.div1 {
+  width: 1fr;
+}
